@@ -14,9 +14,7 @@
   cursor: pointer;
   user-select: none;
 
-  transition: opacity $trans-default, box-shadow $trans-default,
-    background-color $trans-default, color $trans-default,
-    border-color $trans-default;
+  transition: opacity $trans-default, box-shadow $trans-default, background-color $trans-default, color $trans-default, border-color $trans-default;
 
   @include vp-767 {
     padding: size(15px) size(24px);
@@ -31,25 +29,6 @@
 
     @include vp-767 {
       transform: translateY(size(1px));
-    }
-  }
-
-  &--opacity {
-    padding: size(15px) size(22px);
-
-    font-size: size(16px);
-    line-height: size(19px);
-
-    background-color: transparent;
-    border-radius: size(15px);
-    border: size(1px) solid $color-default-white;
-
-    @include vp-767 {
-      line-height: size(18px);
-
-      border-radius: size(9px);
-      border: none;
-      background-color: $color-medium-violet-red;
     }
   }
 
@@ -72,6 +51,23 @@
   }
 
   &--opacity {
+    padding: size(15px) size(22px);
+
+    font-size: size(16px);
+    line-height: size(19px);
+
+    background-color: transparent;
+    border-radius: size(15px);
+    border: size(1px) solid $color-default-white;
+
+    @include vp-767 {
+      line-height: size(18px);
+
+      border-radius: size(9px);
+      border: none;
+      background-color: $color-medium-violet-red;
+    }
+
     &:disabled {
       opacity: 0.3;
       color: $color-default-white;

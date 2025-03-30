@@ -5,11 +5,11 @@ mixin modal-subscribe()
       p Получи в&nbsp;подарок доступ ко&nbsp;всем курсам
     .subscribe__img-wrapper
       picture
-        source(media="(max-width: 767px)", type="image/webp" width="251", height="215", srcset="img/content/modal/subscribe/presents-mobile@1x.webp 1x, img/content/modal/subscribe/presents-mobile@2x.webp 2x")
+        source(media="(max-width: 767px)", type="image/webp", width="251", height="215", srcset="img/content/modal/subscribe/presents-mobile@1x.webp 1x, img/content/modal/subscribe/presents-mobile@2x.webp 2x")
         source(media="(max-width: 767px)", type="image/png", width="251", height="215", srcset="img/content/modal/subscribe/presents-mobile@1x.png 1x, img/content/modal/subscribe/presents-mobile@2x.png 2x")
-        source(type="image/webp" width="515" height="439" srcset="img/content/modal/subscribe/presents-desktop@1x.webp 1x, img/content/modal/subscribe/presents-desktop@2x.webp 2x")
+        source(type="image/webp", width="515", height="439", srcset="img/content/modal/subscribe/presents-desktop@1x.webp 1x, img/content/modal/subscribe/presents-desktop@2x.webp 2x")
         img(src="img/content/modal/subscribe/presents-desktop@1x.png", width="515", height="439", srcset="img/content/modal/subscribe/presents-desktop@2x.png 2x", alt="Коробки с подарками.")
-    div.subscribe__form(data-form-validate, data-callback="base")
+    .subscribe__form(data-form-validate, data-callback="base")
       form(method="post", action="#")
         +custom-input({
           inputType: "email",
