@@ -24,3 +24,13 @@
     background-position: 0% 50%;
   }
 }
+
+@keyframes marquee-moving {
+  0% {
+    transform: translateZ(0) translateX(0);
+  }
+
+  100% {
+    transform: translateZ(0) translateX(-100%);
+  }
+}

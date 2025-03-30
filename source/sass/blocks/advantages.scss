@@ -1,4 +1,5 @@
 .advantages {
+  position: relative;
   padding-bottom: size(84px);
 
   @include vp-767 {
@@ -59,6 +60,49 @@
       span {
         color: $color-hollywood-cerise;
       }
+    }
+  }
+
+  &__marquee {
+    display: flex;
+    max-width: 1920px;
+    margin: 0 auto;
+
+    position: absolute;
+    top: size(35px);
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    text-align: center;
+    font-weight: 700;
+    font-family: $ff-Involve;
+    font-size: size(213px);
+    line-height: 1.2;
+    letter-spacing: size(4.26px);
+
+    color: transparent;
+    -webkit-text-stroke: size(1px) rgba($color-default-white, 0.1);
+    overflow: hidden;
+    user-select: none;
+
+    @include vp-767 {
+      top: size(-35px);
+      font-size: size(48px);
+      letter-spacing: size(0.96px);
+    }
+  }
+
+  &__marquee-text {
+    display: flex;
+    padding-left: size(100px);
+    animation-name: marquee-moving;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    @include vp-767 {
+      padding-left: size(50px);
     }
   }
 
