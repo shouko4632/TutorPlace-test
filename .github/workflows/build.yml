@@ -1,24 +1,43 @@
-name: Build
+name: Build and Deploy
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"] # или ваша основная ветка
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-      - uses: actions/setup-node@v2
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      # Build
+
       - name: Install dependencies
         run: npm i
+
       - name: Build
         run: npm run build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          branch: build
-          folder: build
-          clean: true
+          path: 'build/' # Указываем папку с собранным проектом
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
