@@ -1,0 +1,80 @@
+.advantages {
+  padding-bottom: size(84px);
+
+  @include vp-767 {
+    padding-bottom: size(36px);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__headline {
+    margin-bottom: size(96px);
+    text-align: center;
+
+    @include vp-767 {
+      margin-bottom: size(24px);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: size(80px);
+      line-height: size(72px);
+      font-weight: 500;
+      letter-spacing: size(1.6px);
+      transform: translate(size(1px), size(-7px));
+
+      @include vp-767 {
+        font-size: size(36px);
+        line-height: size(32px);
+        letter-spacing: size(0.72px);
+
+        transform: translate(0, size(-3px));
+      }
+    }
+
+    p {
+      margin: size(24px) auto;
+      max-width: size(679px);
+
+      font-family: $ff-Evolventa;
+      font-size: size(24px);
+      line-height: size(26px);
+      transform: translateY(size(2px));
+
+      @include vp-767 {
+        margin: size(12px) auto;
+        font-size: size(16px);
+        line-height: size(18px);
+        transform: translateY(size(1px));
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      span {
+        color: $color-hollywood-cerise;
+      }
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: size(30px);
+
+    @include vp-767 {
+      display: flex;
+      flex-direction: column;
+      gap: size(15px);
+    }
+  }
+}

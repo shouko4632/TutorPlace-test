@@ -1,0 +1,89 @@
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: size(30px);
+
+  user-select: none;
+
+  @include vp-767 {
+    gap: size(15px);
+  }
+
+  &__headline {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: size(12px);
+
+    @include vp-767 {
+      gap: size(6px);
+    }
+
+    h2 {
+      margin: 0;
+      font-weight: 400;
+      font-size: size(44px);
+      line-height: size(48px);
+      transform: translateY(size(-3px));
+
+      @include vp-767 {
+        font-size: size(30px);
+        line-height: size(33px);
+      }
+    }
+
+    p {
+      margin: 0;
+      font-family: $ff-Evolventa;
+      font-size: size(24px);
+      line-height: size(26px);
+
+      transform: translateY(size(3px));
+
+      @include vp-767 {
+        font-size: size(16px);
+        line-height: size(18px);
+        transform: translateY(size(1px));
+      }
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+    height: size(324px);
+
+    @include vp-767 {
+      height: size(153px);
+    }
+
+    img {
+      position: absolute;
+      top: size(-42px);
+      bottom: 0;
+      left: size(10px);
+      right: 0;
+      margin: auto;
+      width: size(515px);
+
+      @include vp-767 {
+        top: size(-20px);
+        left: size(2px);
+        width: size(251px);
+      }
+    }
+  }
+
+  &__form {
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__form-btn {
+    @include vp-767 {
+      padding: size(9px);
+      border-radius: size(9px);
+    }
+  }
+}

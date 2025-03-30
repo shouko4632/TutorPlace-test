@@ -1,13 +1,221 @@
 .header {
-  padding: 28px 0;
+  padding: size(24px) 0;
+  z-index: 30;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 
-  background-color: $color-neon-blue;
+  @include vp-767 {
+    padding: size(12px) 0;
+  }
+
+  &.is-hidden {
+    transform: translateY(-100%);
+  }
 
   .container {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__logo {
+    margin: 0 size(50px) 0 0;
+    display: flex;
+    gap: size(18px);
+    user-select: none;
+
+    @include vp-767 {
+      gap: size(9px);
+    }
+
+    svg {
+      width: size(42px);
+      height: size(42px);
+
+      @include vp-767 {
+        width: size(21px);
+        height: size(21px);
+      }
+    }
+
+    .is-open & {
+      position: relative;
+      z-index: 25;
+    }
+  }
+
+  &__logo-text {
+    font-size: size(44px);
+    line-height: size(48px);
+
+    @include vp-767 {
+      font-size: size(30px);
+      line-height: size(33px);
+    }
+  }
+
+  &__nav {
+    @include vp-767 {
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      margin: 0;
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      transition: background-color 0.3s ease;
+      right: 0;
+      visibility: hidden;
+      z-index: 20;
+      background: rgba($color-black-russian, 0.3);
+      backdrop-filter: blur(calc(9px / 2));
+    }
+
+    .is-open & {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+
+      .header__item {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: size(150px);
+
+    @include vp-767 {
+      flex-direction: column;
+      align-items: unset;
+      gap: size(36px);
+      padding: size(93px) size(56px) size(30px) size(56px);
+      background-color: $color-black-russian;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: size(105px);
+
+    @include vp-767 {
+      flex-direction: column;
+      gap: size(36px);
+    }
+  }
+
+  &__item {
+    line-height: 0;
+
+    @include vp-767 {
+      opacity: 0;
+      transition: opacity ease-out 0.15s, transform ease-out 0.15s;
+      transform: translateX(-15px);
+    }
+  }
+
+  &__link {
+    font-size: size(24px);
+    line-height: size(26px);
+    font-family: $ff-Evolventa;
     color: $color-default-white;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+
+    @include vp-767 {
+      font-size: size(16px);
+      line-height: size(18px);
+    }
+
+    @media (hover: hover) {
+      &:hover:not(.focus-visible) {
+        &:not(span) {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    min-width: size(184px);
+
+    @include vp-767 {
+      min-width: unset;
+    }
+  }
+
+  &__burger {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    display: none;
+    padding: 0;
+    position: relative;
+    z-index: 25;
+
+    @include vp-767 {
+      display: flex;
+      position: relative;
+      transition: opacity 0.3s ease;
+    }
+
+    .is-open {
+      .header__burger-icon {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease 0s;
+      }
+
+      .header__close-icon {
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 0.3s ease 0.2s;
+      }
+    }
+  }
+
+  &__burger-icon {
+    width: size(18px);
+    height: size(12px);
+    opacity: 1;
+    transition: opacity 0.3s ease 0.1s;
+    pointer-events: all;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    .is-open & {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease 0s;
+    }
+  }
+
+  &__close-icon {
+    width: size(18px);
+    height: size(18px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    .is-open & {
+      opacity: 1;
+      pointer-events: all;
+      transition: opacity 0.3s ease 0.2s;
+    }
   }
 }

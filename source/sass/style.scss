@@ -11,6 +11,7 @@
 @import "variables";
 @import "mixins";
 @import "functions";
+@import "keyframes";
 @import "global/fonts";
 @import "global/reboot";
 @import "global/utils";
@@ -28,6 +29,10 @@
 @import "blocks/custom-toggle";
 @import "blocks/custom-select";
 @import "blocks/input-upload";
+@import "blocks/hero";
+@import "blocks/advantages";
+@import "blocks/advantage";
+@import "blocks/subscribe";
 
 // ---------------------------------
 

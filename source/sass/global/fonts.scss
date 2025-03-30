@@ -11,8 +11,27 @@
 @font-face {
   font-style: normal;
   font-weight: 400;
-  font-family: "";
+  font-family: "Involve";
 
   font-display: swap;
-  src: url("../fonts/.woff2") format("woff2");
+  src: url("../fonts/Involve/Involve-Regular.ttf") format("truetype");
 }
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "Involve";
+
+  font-display: swap;
+  src: url("../fonts/Involve/Involve-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Evolventa";
+
+  font-display: swap;
+  src: url("../fonts/Evolventa/Evolventa-Regular.woff") format("woff");
+}
+

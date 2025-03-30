@@ -1,26 +1,92 @@
 .btn {
   display: inline-flex;
-  padding: 10px 20px;
+  justify-content: center;
+  padding: size(18px) size(24px);
 
+  font-family: $ff-Evolventa;
+  font-size: size(24px);
+  line-height: size(26px);
   color: $color-default-white;
 
-  background-color: $color-neon-blue;
+  background-color: $color-medium-violet-red;
   border: none;
+  border-radius: size(18px);
   cursor: pointer;
+  user-select: none;
 
-  transition: opacity $trans-default;
+  transition: opacity $trans-default, box-shadow $trans-default,
+    background-color $trans-default, color $trans-default,
+    border-color $trans-default;
 
-  &--red {
-    background-color: $color-torch-red;
+  @include vp-767 {
+    padding: size(15px) size(24px);
+    font-size: size(16px);
+    line-height: size(18px);
+    border-radius: size(9px);
+  }
+
+  span {
+    transform: translateY(size(2px));
+    pointer-events: none;
+
+    @include vp-767 {
+      transform: translateY(size(1px));
+    }
+  }
+
+  &--opacity {
+    padding: size(15px) size(22px);
+
+    font-size: size(16px);
+    line-height: size(19px);
+
+    background-color: transparent;
+    border-radius: size(15px);
+    border: size(1px) solid $color-default-white;
+
+    @include vp-767 {
+      line-height: size(18px);
+
+      border-radius: size(9px);
+      border: none;
+      background-color: $color-medium-violet-red;
+    }
   }
 
   &:disabled {
-    opacity: 0.5;
-
+    opacity: 0.3;
+    color: $color-black-russian;
+    background-color: $color-default-white;
     pointer-events: none;
   }
 
   @include hover-focus {
-    opacity: 0.8;
+    color: $color-black-russian;
+    background-color: $color-default-white;
+    box-shadow: 0 0 size(30px) size(2px) $color-hollywood-cerise;
+    border-color: $color-hollywood-cerise;
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  &--opacity {
+    &:disabled {
+      opacity: 0.3;
+      color: $color-default-white;
+      background-color: $color-hollywood-cerise;
+      pointer-events: none;
+    }
+
+    @include hover-focus {
+      color: $color-default-white;
+      background-color: $color-hollywood-cerise;
+      box-shadow: none;
+
+      &:active {
+        color: $color-black-russian;
+      }
+    }
   }
 }

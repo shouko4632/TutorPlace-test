@@ -1,0 +1,132 @@
+.hero {
+  padding-top: size(96px);
+  padding-bottom: size(96px);
+  user-select: none;
+
+  @include vp-767 {
+    padding-top: size(18px);
+    padding-bottom: size(60px);
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: size(40px);
+    overflow: hidden;
+
+    @include vp-767 {
+      flex-direction: column-reverse;
+      gap: size(18px);
+      overflow: visible;
+    }
+  }
+
+  &__content {
+    max-width: 688px;
+
+    @include vp-767 {
+      padding: 0 size(15px);
+    }
+
+    h1 {
+      margin: 0;
+      transform: translateY(size(-11px));
+
+      @include vp-767 {
+        transform: translateY(size(-5px));
+      }
+    }
+
+    p {
+      margin: size(30px) 0;
+      font-size: size(24px);
+      line-height: size(26px);
+      font-family: $ff-Evolventa;
+      transform: translateY(size(2px));
+
+      @include vp-767 {
+        margin: size(18px) 0;
+        font-size: size(16px);
+        line-height: size(18px);
+        transform: translateY(size(1px));
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: size(120px);
+    line-height: size(108px);
+    letter-spacing: size(2.4px);
+
+    color: transparent;
+    background: linear-gradient(90deg, #f706a3 0%, #5a73ef 44%, #81f3f8 100%);
+    background-clip: text;
+    background-size: 300%;
+    animation: gradient-animation 3s infinite;
+
+    @include vp-767 {
+      font-size: size(52px);
+      line-height: size(47px);
+      letter-spacing: size(1.04px);
+    }
+  }
+
+  &__subtitle {
+    display: inline-block;
+    margin-top: size(6px);
+    font-size: size(80px);
+    font-weight: 500;
+    line-height: size(72px);
+    letter-spacing: size(1.6px);
+    transform: translateY(size(4px));
+
+    @include vp-767 {
+      margin-top: size(9px);
+      font-size: size(36px);
+      line-height: size(32px);
+      letter-spacing: size(0.72px);
+      transform: translateY(size(2px));
+    }
+  }
+
+  &__btn {
+    margin-top: size(42px);
+
+    @include vp-767 {
+      margin-top: size(12px);
+      width: 100%;
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+    max-width: size(640px);
+    width: 100%;
+    height: size(726px);
+
+    @include vp-767 {
+      max-width: size(300px);
+      height: size(280px);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: size(-9px);
+      width: size(748px);
+      max-width: unset;
+
+      @include vp-767 {
+        top: size(2px);
+        left: size(-8px);
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: size(338px);
+      }
+    }
+  }
+}

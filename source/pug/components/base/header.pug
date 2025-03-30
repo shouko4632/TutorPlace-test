@@ -6,31 +6,31 @@ mixin header(headerMods, currentUrl)
         text: "Главная"
       },
       {
-        href: "#",
-        text: "Страница 2"
-      },
-      {
-        href: "#",
-        text: "Страница 3"
+        href: "#advantages",
+        text: "Преимущества"
       },
     ]
 
-  header.header(class=headerMods)
+  header.header(class=headerMods, data-header)
     .container
       if(currentUrl === "index.html")
         //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
+        span.header__logo
+          +icon("logo", 42, 42)
+          span.header__logo-text AI
       else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
-      nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
-          ul.main-nav__list
+        a.header__logo(href="index.html", aria-label="Переход на главную")
+          +icon("logo", 42, 42)
+          span.header__logo-text AI
+      nav.header__nav(data-close-menu)
+        .header__nav-wrapper
+          ul.header__list
             each link in headerLinks
-              - const activeState = currentUrl === link.href
-              li.main-nav__item
-                if(activeState)
-                  span.main-nav__link.is-active= link.text
-                else
-                  a.main-nav__link(href=link.href)= link.text
+              li.header__item
+                a.header__link(href=link.href, data-close-menu)= link.text
+          +btn({
+            text: "Получить  доступ"
+          }).btn--opacity.header__btn(data-open-modal="modal-feedback", data-close-menu)
+      button.header__burger(type='button' aria-label='Переключатель отображения меню' aria-pressed='false' data-burger)
+        +icon("burger", 18, 12).header__burger-icon
+        +icon("cross", 18, 18).header__close-icon
